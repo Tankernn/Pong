@@ -55,7 +55,9 @@ public class Pong extends TankernnGame {
 	public void update() {
 		if (!running) {
 			if (Keyboard.isKeyDown(Keyboard.KEY_R)) {
+				guiMaster.removeGui(ball);
 				ball = new Ball(white, leftPlayer, rightPlayer);
+				guiMaster.loadGui(ball);
 				running = true;
 				entities = new Entity2D[] { leftPlayer, rightPlayer, ball };
 				textMaster.removeText(messageText);
