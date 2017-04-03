@@ -12,7 +12,8 @@ import org.lwjgl.util.vector.Vector2f;
 import eu.tankernn.gameEngine.GameLauncher;
 import eu.tankernn.gameEngine.TankernnGame;
 import eu.tankernn.gameEngine.entities.Entity2D;
-import eu.tankernn.gameEngine.loader.font.FontType;
+import eu.tankernn.gameEngine.loader.font.Font;
+import eu.tankernn.gameEngine.loader.font.FontFamily;
 import eu.tankernn.gameEngine.loader.font.GUIText;
 import eu.tankernn.gameEngine.loader.textures.Texture;
 import eu.tankernn.gameEngine.renderEngine.gui.GuiTexture;
@@ -31,9 +32,10 @@ public class Pong extends TankernnGame {
 	public Pong() {
 		super("Pong");
 		try {
-			FontType font = new FontType(loader.loadTexture("arial.png"), new InternalFile("arial.fnt"));
-			scoreText = new GUIText("0  0", 2, font, new Vector2f(-0.5f, 0), 2, true).setColor(1, 1, 1);
-			messageText = new GUIText("", 2, font, new Vector2f(-0.5f, 0.5f), 2, true).setColor(1, 1, 1);
+			FontFamily fontType = new FontFamily(loader.loadTexture("arial.png"), new InternalFile("arial.fnt"));
+			Font font = new Font(fontType, 2);
+			scoreText = new GUIText("0  0", font, new Vector2f(-0.5f, 0), 2, true);
+			messageText = new GUIText("", font, new Vector2f(-0.5f, 0.5f), 2, true);
 			white = loader.loadTexture("white.png");
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
