@@ -13,7 +13,8 @@ public class Pad extends Entity2D {
 	private int upKey, downKey;
 
 	public Pad(Texture texture, Vector2f position, int upKey, int downKey) {
-		super(texture, position, new Vector2f(0.02f, 0.3f));
+		// TODO Fix size of this thing, render single-color textures
+		super(texture, position, 0.3f);
 		this.upKey = upKey;
 		this.downKey = downKey;
 		this.position = position;
@@ -21,9 +22,9 @@ public class Pad extends Entity2D {
 
 	@Override
 	public void update() {
-		if (Keyboard.isKeyDown(upKey) && position.y + scale.y < 1) {
+		if (Keyboard.isKeyDown(upKey) && position.y + getSize().y < 1) {
 			this.setVelocity(new Vector2f(0, SPEED));
-		} else if (Keyboard.isKeyDown(downKey) && position.y - scale.y > -1) {
+		} else if (Keyboard.isKeyDown(downKey) && position.y - getSize().y > -1) {
 			this.setVelocity(new Vector2f(0, -SPEED));
 		} else {
 			this.setVelocity(new Vector2f(0, 0));

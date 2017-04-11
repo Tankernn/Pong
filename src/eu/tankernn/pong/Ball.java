@@ -13,7 +13,7 @@ public class Ball extends Entity2D {
 	private Pad winner = null;
 
 	public Ball(Texture texture, Pad p1, Pad p2) {
-		super(texture, new Vector2f(0, 0), new Vector2f(0.03f, 0.03f));
+		super(texture, new Vector2f(0, 0), 0.03f);
 		this.p1 = p1;
 		this.p2 = p2;
 
@@ -23,10 +23,10 @@ public class Ball extends Entity2D {
 
 	@Override
 	public void update() {
-		if (position.y - scale.y < -1 || position.y + scale.y > 1) {
+		if (position.y - getSize().y < -1 || position.y + getSize().y > 1) {
 			velocity.y *= -1;
-			position.y = Math.max(position.y, -1 + scale.y);
-			position.y = Math.min(position.y, 1 - scale.y);
+			position.y = Math.max(position.y, -1 + getSize().y);
+			position.y = Math.min(position.y, 1 - getSize().y);
 		}
 
 		Vector2f padPos = null;
@@ -49,9 +49,9 @@ public class Ball extends Entity2D {
 			this.setAngle(angle);
 		}
 
-		if (position.x - scale.x < -1) {
+		if (position.x - getSize().x < -1) {
 			winner = p2;
-		} else if (position.x + scale.x > 1) {
+		} else if (position.x + getSize().x > 1) {
 			winner = p1;
 		}
 

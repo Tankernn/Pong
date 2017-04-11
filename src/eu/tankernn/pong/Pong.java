@@ -49,7 +49,7 @@ public class Pong extends TankernnGame {
 		for (Entity2D e : entities)
 			guiMaster.loadGui(e);
 
-		guiMaster.loadGui(new GuiTexture(white, new Vector2f(0.0f, 0.0f), new Vector2f(0.005f, 1.0f)));
+		guiMaster.loadGui(new GuiTexture(white, new Vector2f(0.0f, 0.0f), 0.005f));
 
 		textMaster.loadText(scoreText);
 	}
