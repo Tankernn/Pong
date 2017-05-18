@@ -32,11 +32,11 @@ public class Pong extends TankernnGame {
 	public Pong() {
 		super("Pong");
 		try {
-			FontFamily fontType = new FontFamily(loader.loadTexture("arial.png"), new InternalFile("arial.fnt"));
+			FontFamily fontType = new FontFamily(loader.loadTextureAtlas(new InternalFile("arial.png")), new InternalFile("arial.fnt"));
 			Font font = new Font(fontType, 2);
 			scoreText = new GUIText("0  0", font, new Vector2f(-0.5f, 0), 2, true);
 			messageText = new GUIText("", font, new Vector2f(-0.5f, 0.5f), 2, true);
-			white = loader.loadTexture("white.png");
+			white = loader.loadTexture(new InternalFile("white.png"));
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
 		}
